@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Base64 Tool</title>
+  <script src="base64.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+    .section {
+    }
+    .section-encode {
+    }
+    .section-decode {
+      margin-top: 20px;
+    }
+    .section-decode .section-header {
+      background-color: #5cb85c;
+    }
+    .section-header {
+      background-color: #337ab7;
+      padding: 10px;
+      color: #fff;
+      font-size: 20px;
+    }
+    .section-panel {
+      border: 1px solid #efefef;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-control {
+      display: block;
+      width: 100%;
+      height: 34px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+      -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+    input {
+      height: 40px !important;
+    }
+    textarea {
+      height: 120px !important;
+    }
+    .section-content {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="section section-encode">
+    <div class="section-panel">
+      <div class="section-header">Encode</div>
+      <div class="section-content">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="input value" id="input-encode">
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" placeholder="encoding result" id="textarea-encode"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section section-decode">
+    <div class="section-panel">
+      <div class="section-header">Decode</div>
+      <div class="section-content">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="input value" id="input-decode">
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" placeholder="decoding result" id="textarea-decode"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.onload = function () {
+      document.getElementById('input-encode').addEventListener('input', function () {
+        document.getElementById('textarea-encode').value = Base64.encode(this.value);
+      });
+      document.getElementById('input-decode').addEventListener('input', function () {
+        document.getElementById('textarea-decode').value = Base64.decode(this.value);
+      });
+    }
+  </script>
+</body>
+</html>
